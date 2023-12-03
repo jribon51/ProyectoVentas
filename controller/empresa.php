@@ -5,6 +5,8 @@
     /* TODO: Inicializando clase */
     $empresa = new Empresa();
 
+
+
     switch($_GET["op"]){
         /* TODO: Guardar y editar, guardar cuando el ID este vacio, y Actualizar cuando se envie el ID */
         case "guardaryeditar":
@@ -69,4 +71,7 @@
             }
             break;
     }
+
+
+
 ?>

@@ -1,7 +1,6 @@
 <?php
     class Unidad extends Conectar{
-
-        /* TODO:Listar Registros */
+        /* TODO: Listar Registros */
         public function get_unidad_x_suc_id($suc_id){
             $conectar=parent::Conexion();
             $sql="SP_L_UNIDAD_01 ?";
@@ -11,7 +10,7 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        /* TODO:Listar Registro por id en especifico */
+        /* TODO: Listar Registro por ID en especifico */
         public function get_unidad_x_und_id($und_id){
             $conectar=parent::Conexion();
             $sql="SP_L_UNIDAD_02 ?";
@@ -21,7 +20,7 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        /* TODO:Eliminar o cambiar estado a eliminado */
+        /* TODO: Eliminar o cambiar estado a eliminado */
         public function delete_unidad($und_id){
             $conectar=parent::Conexion();
             $sql="SP_D_UNIDAD_01 ?";
@@ -30,8 +29,8 @@
             $query->execute();
         }
 
-        /* TODO:Registro de datos */
-        public function insert_unidad($und_nom,$suc_id){
+        /* TODO: Registro de datos */
+        public function insert_unidad($suc_id,$und_nom){
             $conectar=parent::Conexion();
             $sql="SP_I_UNIDAD_01 ?,?";
             $query=$conectar->prepare($sql);
@@ -40,7 +39,7 @@
             $query->execute();
         }
 
-        /* TODO:actualizar datos */
+        /* TODO:Actualizar Datos */
         public function update_unidad($und_id,$suc_id,$und_nom){
             $conectar=parent::Conexion();
             $sql="SP_U_UNIDAD_01 ?,?,?";
@@ -50,10 +49,5 @@
             $query->bindValue(3,$und_nom);
             $query->execute();
         }
-
-
-
-
-
     }
 ?>

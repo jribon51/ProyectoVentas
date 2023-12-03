@@ -1,7 +1,6 @@
 <?php
     class Moneda extends Conectar{
-
-        /* TODO:Listar Registros */
+        /* TODO: Listar Registros */
         public function get_moneda_x_suc_id($suc_id){
             $conectar=parent::Conexion();
             $sql="SP_L_MONEDA_01 ?";
@@ -11,7 +10,7 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        /* TODO:Listar Registro por id en especifico */
+        /* TODO: Listar Registro por ID en especifico */
         public function get_moneda_x_mon_id($mon_id){
             $conectar=parent::Conexion();
             $sql="SP_L_MONEDA_02 ?";
@@ -21,7 +20,7 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        /* TODO:Eliminar o cambiar estado a eliminado */
+        /* TODO: Eliminar o cambiar estado a eliminado */
         public function delete_moneda($mon_id){
             $conectar=parent::Conexion();
             $sql="SP_D_MONEDA_01 ?";
@@ -30,8 +29,8 @@
             $query->execute();
         }
 
-        /* TODO:Registro de datos */
-        public function insert_moneda($mon_nom,$suc_id){
+        /* TODO: Registro de datos */
+        public function insert_moneda($suc_id,$mon_nom){
             $conectar=parent::Conexion();
             $sql="SP_I_MONEDA_01 ?,?";
             $query=$conectar->prepare($sql);
@@ -40,7 +39,7 @@
             $query->execute();
         }
 
-        /* TODO:actualizar datos */
+        /* TODO:Actualizar Datos */
         public function update_moneda($mon_id,$suc_id,$mon_nom){
             $conectar=parent::Conexion();
             $sql="SP_U_MONEDA_01 ?,?,?";
@@ -50,10 +49,5 @@
             $query->bindValue(3,$mon_nom);
             $query->execute();
         }
-
-
-
-
-
     }
 ?>

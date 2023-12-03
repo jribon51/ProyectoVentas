@@ -1,16 +1,15 @@
 <?php
     class Compania extends Conectar{
-
-        /* TODO:Listar Registros */
+        /* TODO: Listar Registros */
         public function get_compania(){
             $conectar=parent::Conexion();
-            $sql="SP_L_COMPANIA_01 ?";
+            $sql="SP_L_COMPANIA_01";
             $query=$conectar->prepare($sql);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        /* TODO:Listar Registro por id en especifico */
+        /* TODO: Listar Registro por ID en especifico */
         public function get_compania_x_com_id($com_id){
             $conectar=parent::Conexion();
             $sql="SP_L_COMPANIA_02 ?";
@@ -20,7 +19,7 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        /* TODO:Eliminar o cambiar estado a eliminado */
+        /* TODO: Eliminar o cambiar estado a eliminado */
         public function delete_compania($com_id){
             $conectar=parent::Conexion();
             $sql="SP_D_COMPANIA_01 ?";
@@ -29,7 +28,7 @@
             $query->execute();
         }
 
-        /* TODO:Registro de datos */
+        /* TODO: Registro de datos */
         public function insert_compania($com_nom){
             $conectar=parent::Conexion();
             $sql="SP_I_COMPANIA_01 ?";
@@ -38,7 +37,7 @@
             $query->execute();
         }
 
-        /* TODO:actualizar datos */
+        /* TODO:Actualizar Datos */
         public function update_compania($com_id,$com_nom){
             $conectar=parent::Conexion();
             $sql="SP_U_COMPANIA_01 ?,?";
@@ -47,10 +46,5 @@
             $query->bindValue(2,$com_nom);
             $query->execute();
         }
-
-
-
-
-
     }
 ?>

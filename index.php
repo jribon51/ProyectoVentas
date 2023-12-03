@@ -88,14 +88,14 @@
                                                 <div class="mb-3">
                                                     <label for="emp_id" class="form-label">Empresa</label>
                                                     <select type="text" class="form-control form-select" id="emp_id" aria-label="Seleccionar">
-                                                    <option selected>selecciona</option>
+                                                    <option selected>Seleccionar</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="suc_id" class="form-label">Sucursal</label>
                                                     <select type="text" class="form-control form-select" id="suc_id" aria-label="Seleccionar">
-                                                    <option selected>selecciona</option>
+                                                    <option selected>Seleccionar</option>
                                                     </select>
                                                 </div>
 
@@ -152,6 +152,8 @@
     <!-- end auth-page-wrapper -->
 
     <!-- JAVASCRIPT -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/node-waves/waves.min.js"></script>
