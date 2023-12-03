@@ -2,9 +2,9 @@
     class Conectar{
         protected $dbh;
 
-        protected function Conexion(){
+        public static function Conexion(){
             try {
-                $conectar=$this->dbh=new PDO("sqlsrv:server=localhost;database=CompraVenta","jose","Jribon51");
+                $conectar=new PDO("sqlsrv:server=tcp:database-sql-server-ventas.c9ldadwndkp0.us-east-2.rds.amazonaws.com,1433;database=CompraVenta","admin","Jribon51");
                 return $conectar;
             } catch (Exception $e) {
                 print "Error conexion BD". $e->getmessage() ."<br/>";
