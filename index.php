@@ -1,3 +1,12 @@
+<?php
+    require_once("config/conexion.php");
+    if(isset($_POST["enviar"]) and $_POST["enviar"]=="si" ){
+        require_once("models/Usuario.php");
+        $usuario = new Usuario();
+        $usuario->login();	
+    }
+?>
+
 <!doctype html>
 <html lang="es" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
 
@@ -10,7 +19,7 @@
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -83,25 +92,25 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <form action="index.html">
+                                            <form action="" method="post" id="login_form">
 
                                                 <div class="mb-3">
                                                     <label for="emp_id" class="form-label">Empresa</label>
-                                                    <select type="text" class="form-control form-select" id="emp_id" aria-label="Seleccionar">
+                                                    <select type="text" class="form-control form-select" name="emp_id" id="emp_id" aria-label="Seleccionar">
                                                     <option selected>Seleccionar</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="suc_id" class="form-label">Sucursal</label>
-                                                    <select type="text" class="form-control form-select" id="suc_id" aria-label="Seleccionar">
+                                                    <select type="text" class="form-control form-select" name="suc_id" id="suc_id" aria-label="Seleccionar">
                                                     <option selected>Seleccionar</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="mb-3">
                                                     <label for="usu_correo" class="form-label">Correo Electronico</label>
-                                                    <input type="text" class="form-control" id="usu_correo" placeholder="Ingrese Correo Electronico">
+                                                    <input type="text" class="form-control" name="usu_correo" id="usu_correo" placeholder="Ingrese Correo Electronico">
                                                 </div>
 
                                                 <div class="mb-3">
@@ -110,7 +119,7 @@
                                                     </div>
                                                     <label class="form-label" for="usu_pass">Contraseña</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5" placeholder="Ingrese contraseña" id="usu_pass">
+                                                        <input type="password" class="form-control pe-5" placeholder="Ingrese contraseña" name="usu_pass" id="usu_pass">
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                     </div>
                                                 </div>
@@ -121,6 +130,7 @@
                                                 </div>
 
                                                 <div class="mt-4">
+                                                    <input type="hidden" name="enviar" class="form-control" value="si">
                                                     <button class="btn btn-success w-100" type="submit">Acceder</button>
                                                 </div>
 
@@ -152,7 +162,8 @@
     <!-- end auth-page-wrapper -->
 
     <!-- JAVASCRIPT -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
@@ -160,10 +171,17 @@
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
-
+    
+    <!--jquery cdn-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--select2 cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
     <!-- password-addon init -->
     <script src="assets/js/pages/password-addon.init.js"></script>
     <script type="text/javascript" src="index.js"></script>
+
+     
 </body>
 
 </html>
